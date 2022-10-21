@@ -38,8 +38,19 @@ class Calculator {
     .
     etc
      */
-    int fibonacciNumberFinder(int n){
-        return 0;
+    int fibonacciNumberFinder(int n) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        }
+        int[] sums = new int[n + 1];
+        sums[0] = 0;
+        sums[1] = 1;
+        for (int i = 2; i < sums.length; i++) {
+            sums[i] = sums[i - 1] + sums[i - 2];
+        }
+        return sums[n];
     }
 
 
