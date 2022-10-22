@@ -3,7 +3,7 @@ pipeline {
     environment {
         registry = "rcxwhiz/cs204-calculator-app"
         registryCredential = 'dockerhub'
-        dockerImage=''
+        dockerImage = ''
     }
 
     agent any
@@ -57,7 +57,7 @@ pipeline {
             }
         }
 
-        stage ('Deploy image') {
+        stage ('Deploy Image') {
             steps {
                 script {
                     docker.withRegistry('', registryCredential) {
@@ -67,7 +67,7 @@ pipeline {
             }
         }
 
-        stage ('Remove unused docker image') {
+        stage ('Remove Unused docker image') {
             steps {
                 sh "docker rmi $registry:$BUILD_NUMBER"
             }
@@ -75,7 +75,7 @@ pipeline {
 
         post {
             failure {
-                mail to: "joshbedwell01@gmail.com",
+                mail to: 'joshbedwell01@gmail.com',
                      subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
                      body: "Something is wrong with ${env.BUILD_URL}"
             }
