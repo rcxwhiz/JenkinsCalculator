@@ -79,5 +79,5 @@ class Calculator {
         return n + uuid.toString();
     }
 
-
+    ERROR LINE
 }
