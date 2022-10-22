@@ -78,6 +78,4 @@ class Calculator {
         UUID uuid = UUID.randomUUID();
         return n + uuid.toString();
     }
-
-    ERROR LINE
 }
